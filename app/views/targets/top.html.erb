@@ -1,0 +1,9 @@
+<%= link_to "目標設定", new_target_path %>
+<%= link_to "目標詳細", target_path(@target) %>
+<%= link_to "目標変更",  edit_target_path(@target) %>
+
+
+<div>
+運総数:<%= Luck.all.count %>
+</div>
+

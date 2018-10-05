@@ -1,0 +1,18 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @luck, url: lucks_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <p>本文:<%= @luck.content %></p>
+  <%= image_tag(@luck.image, :size => "500x330") %>
+  <%= form.submit  "登録する" %>
+  <% end %>
+  
+ <%= form_with(model: @luck, url: new_luck_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <button type="submit" class="btn btn-warning">戻る</button>
+  </div>
+  <% end %>
+  
+  

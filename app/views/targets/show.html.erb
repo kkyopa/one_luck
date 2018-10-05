@@ -1,0 +1,14 @@
+<h1>ターゲット詳細画面</h1>
+
+<div>
+  目標:<%= Target.last.content %>
+</div>
+
+<div>
+  目標ポイント:<%= Target.last.point %>
+</div>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @target.image, :size => "500x330"%>
+</p>

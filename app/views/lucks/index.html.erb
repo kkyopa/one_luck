@@ -1,0 +1,8 @@
+<% @luck.each do |luck| %>
+  <h1 class ="content"><%= luck.content %></h1>
+  <%= link_to '詳細画面', luck_path(luck), class: 'btn btn-info' %>
+  <% if luck.user_id == current_user.id %>
+  <%= link_to '編集画面', edit_luck_path(luck), class: 'btn btn-default' %>
+  <%= link_to '削除', luck_path(luck.id), method: :delete, data: { confirm: '投稿を削除しますか？' }, class: 'btn btn-danger' %><br>
+<% end %>
+<% end %>

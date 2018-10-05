@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+　　　<%= link_to "変更", edit_user_registration_path %>
+　　　 <%= link_to "目標を設定しよう！！", new_target_path %>
+    <% end %>
+    
+    
+<div>
+  目標:<%= @target&.content %>
+</div>
+
+<div>
+  point<br><%= current_user.lucks.count%>/<%= @target&.point %>
+</div>
+
+<div>
+名前:<%= current_user.name %>
+</div>
+<div>
+メールアドレス:<%= current_user.email %>
+</div>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.avatar, :size => "500x330"%>
+</p>
+
+<% @luck.each do |luck| %>
+<% if luck.user_id == current_user.id %>
+  <h1 class ="content"><%= luck.content %></h1>
+<% end %>
+<% end %>

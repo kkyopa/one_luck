@@ -1,0 +1,24 @@
+<h1>目標設定画面</h1>
+
+<%= form_with(model: Target.new, local: true) do |form| %>
+  <div class="Target_content">
+    <%= form.label :目標設定 %>
+    <%= form.text_field :content %>
+  </div>
+  <div class="Target_point">
+    <%= form.label :ポイント設定 %>
+    <%= form.select :point, [["100", "100"], ["200", "200"],  ["300", "300"], ["400", "400"],["500", "500"], ["1000", "1000"] ],  :prompt => "選択してください" %>
+  </div>
+<!--  []の中の左側は画面上に表示する文字で、右側はデータベースに登録する値です。-->
+<!--[]の中に[]を,区切りで入れて選択肢を増やしています。-->
+  <div class="target_image">
+    <%= form.label :画像投稿 %>
+    <%= form.file_field :image %><br>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<h3>目標を設定済みの方はこちらへ</h3>
+<%= link_to "目標ページ", top_targets_path %>
+
+ 

@@ -1,0 +1,17 @@
+<h1>ターゲット変更画面</h1>
+
+<%= form_with(model: @target, local: true) do |form| %>
+  <div class="Target_content">
+    <%= form.label :目標設定 %>
+    <%= form.text_field :content %>
+  </div>
+  <div class="Target_point">
+    <%= form.label :ポイント設定 %>
+    <%= form.select :point, [["100", "100"], ["200", "200"],  ["300", "300"], ["400", "400"],["500", "500"], ["1000", "1000"] ], :selected=>@target.image %>
+  </div>
+  <div class="target_image">
+    <%= form.label :画像投稿 %>
+    <%= form.file_field :image %><br>
+  </div>
+  <%= form.submit %>
+<% end %>
