@@ -1,30 +1,54 @@
 <% if user_signed_in? %>
-　　　<%= link_to "変更", edit_user_registration_path %>
-　　　 <%= link_to "目標を設定しよう！！", new_target_path %>
-    <% end %>
-    
-    
+  <%= link_to "変更", edit_user_registration_path %>
+  <%= link_to "目標を設定しよう！！", new_target_path %>
+<% end %>
+
+  <div class="myfriend">
+    <a href="<%= users_following_path(@user) %>">
+      <strong id="following" class="friend">
+        <%= @user.following.count %>
+      </strong>
+      フォロー
+    </a>
+    <a href="<%= users_followers_path(@user) %>">
+    　　<strong id="followers" class="friend">
+    　　<%= @user.followers.count %>
+    　　</strong>
+    フォロワー
+  　</a>
+　</div>
+  
+
+
 <div>
   目標:<%= @target&.content %>
 </div>
 
 <div>
-  point<br><%= current_user.lucks.count%>/<%= @target&.point %>
+  <!--point<br><%#= current_user.lucks.count%>/<%#= @target&.point %>-->
+  point<br><%= @user.lucks.count%>/<%= @target&.point %>
 </div>
 
 <div>
-名前:<%= current_user.name %>
+  名前:<%#= current_user.name %>
+  <%= @user.name %>
 </div>
 <div>
-メールアドレス:<%= current_user.email %>
+  <%if @user == current_user %>
+    <%= @user.email %>
+  <% end %>
 </div>
 <p>
   <strong>Image:</strong>
   <%= image_tag @user.avatar, :size => "500x330"%>
 </p>
 
-<% @luck.each do |luck| %>
-<% if luck.user_id == current_user.id %>
-  <h1 class ="content"><%= luck.content %></h1>
+<%unless @user == current_user %>
+  <%= render 'follow_form', user: @user %>
 <% end %>
+
+<% @luck.each do |luck| %>
+  <% if luck.user_id == @user.id %>
+    <h1 class ="content"><%= luck.content %></h1>
+  <% end %>
 <% end %>

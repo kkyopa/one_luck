@@ -27,6 +27,7 @@
       </ul>
     </div>
   </div>
+  <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
 </nav>
 　　　<% if user_signed_in? %>
 　　　<%= link_to "プロフ", user_path(current_user.id) %>

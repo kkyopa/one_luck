@@ -5,6 +5,7 @@ class LucksController < ApplicationController
     
     def index
       @luck = Luck.all
+      @user = User.all
     end
     
     def new
