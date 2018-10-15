@@ -7,11 +7,13 @@
   </div>
   <div class="Target_point">
     <%= form.label :ポイント設定 %>
-    <%= form.select :point, [["100", "100"], ["200", "200"],  ["300", "300"], ["400", "400"],["500", "500"], ["1000", "1000"] ], :selected=>@target.image %>
+    <%= form.select :point, [["30", "30"], ["100", "100"], ["200", "200"],  ["300", "300"], ["400", "400"],["500", "500"], ["1000", "1000"] ], :selected=>@target.image %>
   </div>
   <div class="target_image">
     <%= form.label :画像投稿 %>
     <%= form.file_field :image %><br>
   </div>
-  <%= form.submit %>
+ <center><button type="submit" class="btn btn-danger">目標を変更する</button></center>
 <% end %>
+
+

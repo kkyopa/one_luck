@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h1 class="sign_main">新規登録</h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(パスワードは<%= @minimum_password_length %>文字以上にしてください)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -24,11 +24,27 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
   <div class="avatar">
-<%= f.label :profile_image %>
-<%= f.file_field :avatar, id: :feed_avatar %>
+    <%= f.label :プロフィール画像 %>
+    <%= f.file_field :avatar, id: :feed_avatar %>
   </div>
+
+  <%= fields_for(@target) do |target| %>
+    <div class="Target_content">
+      <%= target.label :目標を設定してください %>
+      <%= target.text_field :content %>
+    </div>
+    <div class="Target_point">
+      <%= target.label :運ポイント設定 %>
+      <%= target.select :point, [["30", "30"], ["100", "100"], ["200", "200"],  ["300", "300"], ["400", "400"],["500", "500"], ["1000", "1000"]],  :prompt => "選択してください" %>
+    </div>
+    <div class="target_image">
+      <%= target.label :目標イメージ画像 %>
+      <%= target.file_field :image %><br>
+    </div>
+  <% end %>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+   <center><button type="submit" class="btn btn-info">登録完了</button></center>
   </div>
 <% end %>
-<%= render "devise/shared/links" %>
+<!--<%#= render "devise/shared/links" %>-->

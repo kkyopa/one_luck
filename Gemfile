@@ -4,6 +4,9 @@ gem 'devise'
 gem 'bcrypt', '3.1.12'
 gem 'carrierwave'
 gem 'mini_magick'
+gem "chartkick"
+gem 'chartable'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -57,5 +60,7 @@ end
 gem 'letter_opener_web'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'pry-rails'
 gem 'better_errors'
 gem 'binding_of_caller'

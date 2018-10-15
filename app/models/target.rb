@@ -1,5 +1,6 @@
 class Target < ApplicationRecord
-     mount_uploader :image, AvatarUploader
+      
+      mount_uploader :image, AvatarUploader
       belongs_to :user
       has_many :targets
       has_many :relationships, dependent: :destroy

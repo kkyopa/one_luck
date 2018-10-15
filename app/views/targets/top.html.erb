@@ -1,9 +1,9 @@
-<%= link_to "目標設定", new_target_path %>
-<%= link_to "目標詳細", target_path(@target) %>
-<%= link_to "目標変更",  edit_target_path(@target) %>
+<%= link_to "目標ページ", target_path(@target),class: 'btn btn-success' %>
+<%= link_to "目標の変更",  edit_target_path(@target),class: 'btn btn-success' %>
 
 
-<div>
-運総数:<%= Luck.all.count %>
-</div>
+<center><h1 class="lack_all_title">全員の運ポイント総数</h1>
+<div class="lack_all">
+<%= Luck.all.count %>
+</div></center>
 

@@ -5,7 +5,7 @@
   <%= form.hidden_field :image_cache %>
   <p>本文:<%= @luck.content %></p>
   <%= image_tag(@luck.image, :size => "500x330") %>
-  <%= form.submit  "登録する" %>
+  <center><button type="submit" class="btn btn-danger">送信</button></center>
   <% end %>
   
  <%= form_with(model: @luck, url: new_luck_path, local: true, method: 'get') do |form| %>

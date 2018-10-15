@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'users/following'
   get 'users/followers'
   get 'relationships/following'
-  devise_for :users
+  devise_for :users, controllers: {
+   registrations: 'users/registrations'
+  }
   root 'lucks#top'
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   resources :targets do 

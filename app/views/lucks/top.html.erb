@@ -1,1 +1,86 @@
-<h1>トップ画面</h1>
+<div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+		<li data-target="#sampleCarousel" data-slide-to="1"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<center><img src="../../../assets/san.jpg" alt="太陽"></center>
+		</div>
+		<div class="item">
+			<center><img src="../../../assets/moon.jpg" alt="月"></center>
+		</div>
+		<h1 style="position: absolute; top: 100px; left: 500px;"> 
+        <font><h1 class="top_title">one good deed for the day</h1></font> 
+        </h1>
+    <% unless user_signed_in? %>
+		<h1 style="position: absolute; top: 600px; left: 550px;"> 
+        <font><%= link_to 'Sign_up', new_user_registration_path, class: "btn btn-primary btn-lg" %></font> 
+        </h1>
+        <h1 style="position: absolute; top: 600px; left: 800px;"> 
+        <font><%= link_to 'Log_in', new_user_session_path, class: "btn btn-danger btn-lg" %></font> 
+        </h1>
+        <% end %>
+	</div>
+</div>
+
+
+
+<h1 id="description" class="overview">一日一善一運とは？</h1>
+<div class="overview_content">
+  <h1>あなの実現したいこと</h1>
+  <p>一日一善一運は、善の行いを投稿して運を貯めるアプリケーションです。</p>
+  <p>運を貯めて成功させたい、成し遂げたいそんな方にぴったりです。</p>
+  
+  <h3>運の使い方</h3>
+  <p>ここぞという時に運を使い成功しよう！！</p>
+  <p>幸運な人は運の使い方を知っています。</p>
+  <p>運の使い方で重要なのはどこで運を使えるかということです。</p>
+  <p>どうでもいい所では運を使わないようにするために</p>
+  <p>運を使う目標を設定して、運の使い道を明確化しよう！！</p>
+  <h3>運の貯め方</h3>
+  <p>運は貯めることができますが、運を使い果たすこともあります。</p>
+  <p>ここで運の貯め方を紹介したいと思います。</p>
+  <p>誰かのために奉仕すること</p>
+  <p>健康的な生活を送ること</p>
+  <h3>人には幸運な人もいれば不運な人も存在する理由</h3>
+  <p>運のいい人と特徴と悪い人の特徴があります。</p>
+  <p>運のいい人は、笑顔でポディシブに物事を考え、陰口を言わない人です。</p>
+  <p>人の思考や行動パターンで運を呼び寄せコントロールすることできます。</p>
+  <h3>始めよう！！</h3>
+  <p>一日一善を実行し運をためよう</p>
+  <p>善の行いはきっとあなたの助けとなるでしょう</p>
+</div>
+
+<section class="function">
+<h1 class="overview_service">service</h1>
+  <div class="function-images">
+	  <div class="function-image">
+      <i class="glyphicon glyphicon-envelope color-gold" style="font-size: 100px"></i>
+    <div class="glyphicon-envelope_content">
+      <h3>一日一善の投稿</h3>
+      <p>いいことしたらつぶやこう</p>
+      <p>一日一善を実行したらサイトにアクセス!!</p>
+      <p>例:道に落ちていたゴミを拾ってゴミ箱に捨てた</p>
+    </div>
+    </div>
+  <div class="function-image">
+     <i class="glyphicon glyphicon-map-marker color-gold" style="font-size: 100px"></i>
+  <div  class="glyphicon-map-marker_content">
+    <h3>目標を設定しよう</h3>
+    <p>あなたの目標と運ポイントを設定しよう</p>
+     <p>投稿した分運が１ポイント貯まり運を可視化できます。</p>
+    <p>例:必ずハワイに行く 100pt</p>
+  </div>
+  </div>
+  <div class="function-image">
+    <i class="glyphicon glyphicon-star color-gold "style="font-size: 100px"></i>
+  <div class="glyphicon-star_content">
+    <h3>運ポイントを達成しよう</h3>
+    <p>また新しく運を貯めよう</p>
+    <p>運が貯まっているあなたはきっと目標を達成できるでしょう</p>
+    <p>運をリセットしてもう一度最初から目標を設定しよう</p>
+  </div>
+  </div>
+</div>
+</section>

@@ -1,54 +1,78 @@
-<% if user_signed_in? %>
-  <%= link_to "変更", edit_user_registration_path %>
-  <%= link_to "目標を設定しよう！！", new_target_path %>
-<% end %>
-
-  <div class="myfriend">
-    <a href="<%= users_following_path(@user) %>">
-      <strong id="following" class="friend">
-        <%= @user.following.count %>
-      </strong>
-      フォロー
-    </a>
-    <a href="<%= users_followers_path(@user) %>">
-    　　<strong id="followers" class="friend">
-    　　<%= @user.followers.count %>
-    　　</strong>
-    フォロワー
-  　</a>
-　</div>
-  
-
-
-<div>
+<div class="target-content">
   目標:<%= @target&.content %>
 </div>
 
-<div>
-  <!--point<br><%#= current_user.lucks.count%>/<%#= @target&.point %>-->
-  point<br><%= @user.lucks.count%>/<%= @target&.point %>
-</div>
+<div class="mypage_profile">
+  <div class="mypage_name">
+    <%= @user.name %>
+  </div>
 
-<div>
-  名前:<%#= current_user.name %>
-  <%= @user.name %>
-</div>
-<div>
+  <div class="mypae_email">
   <%if @user == current_user %>
     <%= @user.email %>
   <% end %>
+  </div>
+
+  <div class="follow">
+  <a href="<%= users_following_path(@user) %>">
+    <strong id="following" class="friend">
+      <%= @user.following.count %>
+    </strong>
+    フォロー
+  </a>
+  <a href="<%= users_followers_path(@user) %>">
+    <strong id="followers" class="friend">
+      <%= @user.followers.count %>
+    </strong>
+    フォロワー
+  </a>
+  </div>
 </div>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @user.avatar, :size => "500x330"%>
-</p>
+
+<div class="mypage_image">
+  <!--<strong>Image:</strong>-->
+  <% unless @user.avatar.present? %>
+    <%= image_tag @user.avatar, :size => "280x330"%>
+  <% else %>
+    <%= image_tag('default.jpg') %>
+  <% end %>
+</div>
+
+<!--<div>-->
+  <!--point<br><%#= current_user.lucks.count%>/<%#= @target&.point %>-->
+<!--  point<br><%#= @user.lucks.count%>/<%#= @target&.point %>-->
+<!--</div>-->
+
+<div class="mypage_chart">
+  <div class="mypage_points">
+    point<br><%= @user.lucks.count%>/<%= @target&.point %>
+  </div>
+<%= bar_chart [
+  { name: "運ポイント", data: @chart_luck },
+  { name: "目標ポイント", data: @chart_target }
+] %>
+</div>
+
+<!--<%#= pie_chart ({ "Football":@user.lucks.count , "Basketball": @target&.point }) %>-->
 
 <%unless @user == current_user %>
+<div class ="follow_btn">
   <%= render 'follow_form', user: @user %>
+</div>
 <% end %>
 
-<% @luck.each do |luck| %>
-  <% if luck.user_id == @user.id %>
-    <h1 class ="content"><%= luck.content %></h1>
+<h1>------------------------------------------------------------------------------------------------------</h1>
+
+<table class="table table-striped table-hover">
+<div class="user_luck_content">
+  <% @luck.each do |luck| %>
+      <%= luck.content %>
+      <h1>------------------------------------------------------------------------------------------------------</h1>
   <% end %>
-<% end %>
+</div>
+</table>
+<%= paginate @users %>
+
+
+
+
