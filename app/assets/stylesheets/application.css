@@ -112,7 +112,8 @@ color:white;
 
 .glyphicon-envelope:before{
     margin-left:200px;
-    
+    font-size:100px;
+    color:gold;
 }
 
 .glyphicon-envelope_content{
@@ -123,6 +124,8 @@ color:white;
 
 .glyphicon-map-marker:before{
      margin-left:160px;
+     font-size:100px;
+     color:gold;
 }
 
 .glyphicon-map-marker_content{
@@ -132,6 +135,8 @@ color:white;
 
 .glyphicon-star:before{
      margin-left:145px;
+     font-size:100px;
+     color:gold;
 }
 
 .glyphicon-star_content{
