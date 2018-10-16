@@ -51,5 +51,3 @@ class TargetsController < ApplicationController
     params.require(:target).permit(:point, :content, :image, :image_cache, :user_id, :luck_id)
     end
 end
-
-
