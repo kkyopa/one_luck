@@ -24,7 +24,9 @@ class TargetsController < ApplicationController
     end
     
     def show
-      @target= Target.find(params[:id])
+      # @target= Target.find(params[:id])
+      @target = Target.find_by(user_id: current_user.id)
+      # binding.pry
     end
     
     def edit

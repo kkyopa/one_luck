@@ -24,6 +24,24 @@
   height: 54px;
 }
 
+
+
+
+.table-ul {
+  text-align: center;
+  width: 100%;
+  margin-left:480px;
+  margin-top:8px;
+ 
+}
+
+.table-ul li {
+  display: table-cell;
+  
+}
+
+
+
 .navbar-default .navbar-brand{
     color:gold;
     font-family: 'Trebuchet MS',serif;
@@ -36,11 +54,9 @@ color:white;
 
 .navbar-nav {
     margin-left:250px;
+     font-size:20px;
+     margin-top:8px;
 }
-#login_nav {
- font-size:20px;
-}
-
 
 /*top画像(46~70)*/
 
