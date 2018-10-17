@@ -41,11 +41,18 @@ class LucksController < ApplicationController
   
   def destroy
     @luck.destroy
-    redirect_to lucks_path, notice:"削除しました！"
+    redirect_to lucks_path, notice:"削除しました"
+  end
+  
+  def destroy_all
+    @lucks = Luck.where(user_id: current_user.id)
+    @lucks.destroy_all
+    redirect_to user_path(current_user.id), notice:"全件リセットしました。また新しい目標を設定しよう！！"
   end
   
   def confirm
     @luck = Luck.new(luck_params)
+    @lucks = Luck.new(luck_params)
   end
   
   private
@@ -61,7 +68,6 @@ class LucksController < ApplicationController
   def user_blank
     if current_user.blank?
        redirect_to new_user_registration_path
-      #間違えているかも
     end
   end
   

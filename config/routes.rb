@@ -12,13 +12,14 @@ Rails.application.routes.draw do
   resources :targets do 
     collection do
        get 'top'
-     end
-   end
+    end
+  end
   resources :users
   resources :relationships
   resources :lucks do
     collection do
       post :confirm
+      delete :destroy_all
     end
   end
 end

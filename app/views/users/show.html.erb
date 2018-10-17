@@ -45,7 +45,7 @@
 
 <div class="mypage_chart">
   <div class="mypage_points">
-    point<br><%= @user.lucks.count%>/<%= @target&.point %>
+    運ポイント<br><%= @user.lucks.count%>/<%= @target&.point %>
   </div>
 <%= bar_chart [
   { name: "運ポイント", data: @chart_luck },
@@ -61,11 +61,18 @@
 </div>
 <% end %>
 
-<table class="table table-striped table-hover">
+<% if @user.lucks.count >= @target&.point %>
+<div class="congratulations">
+  <p><span class="c">c</span><span class="o">o</span><span class="n">n</span><span class="g">g</span><span class="r">r</span><span class="a">a</span><span class="t">t</span><span class="u">u</span><span class="l">l</span><span class="a2">a</span><span class="t2">t</span><span class="i">i</span><span class="o2">o</span><span class="n2">n</span><span class="s">s</span></p>
+<p>目標ポイントを達成！！</p>
+</div>
+  <center><%= link_to '運ポイントをリセットする', destroy_all_lucks_path, method: :delete, data: { confirm: '運ポイントと一日一善の投稿が全て削除します。よろしいですか？' }, class: 'btn btn-primary' %></center>
+<% end %>
+
 <div class="user_luck_content">
   <% @luck.each do |luck| %>
+  <div class ="user-design">
       <%= luck.content %>
+      </div>
   <% end %>
 </div>
-</table>
-<%= paginate @users %>

@@ -1,13 +1,13 @@
 <!--<a href="<%#= users_following_path(@user) %>">-->
 <table class="table table-striped table-hover">
 <% @lucks.each do |luck| %>
-<div class ="luck_name">
+<div class ="luck-design">
+<div class ="mypage_profile">
 名前:<%= luck.user.name %>
-</div>
-
 
 
 <h1 class ="content"><%= luck.content %></h1>
+</div>
 <% unless luck.user_id == current_user.id %>
   <%= link_to "プロフィール情報", user_path(luck.user_id), class: 'btn btn-warning' %>
 <% end %>
@@ -16,6 +16,9 @@
   <%= link_to '編集画面', edit_luck_path(luck), class: 'btn btn-default' %>
   <%= link_to '削除', luck_path(luck.id), method: :delete, data: { confirm: '投稿を削除しますか？' }, class: 'btn btn-danger' %><br>
   <% end %>
+  </div>
 <% end %>
+
 </table>
+
 <%= paginate @lucks %>
