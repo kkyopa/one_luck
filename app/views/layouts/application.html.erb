@@ -22,17 +22,16 @@
            <%= link_to "一日一善の投稿", new_luck_path,class: 'btn btn-primary' %>
            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'btn btn-primary' %>
            <%= link_to "目標一覧", top_targets_path,class: 'btn btn-success' %>
-       </div>
       </ul>
     </div>
-  </div>
+    </div>
   </header>
   <% else %>
    <header>
      <nav id="sampleNavbar" class="navbar navbar-default">
-      <div data-spy="affix">
-        <a class="navbar-brand" href="/">一日一善一運</a>
-      </div>
+     <div data-spy="affix">
+       <a class="navbar-brand" href="/">一日一善一運</a>
+     </div>
      <ul class="table-ul">
         <li><a class="btn btn-primary" href="#description" role="button">一日一善一運とは？</a></li>
         <li><a class="btn btn-primary" href=" /users/sign_up" role="button">サインアップ</a></li>
@@ -44,11 +43,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
-    <footer>
+  <footer>
     <p>利用規約</p>
     <p>プライバシーポリシー</p>
-    <!--<a href="/">利用規約</a>-->
-    <!--<a href="/">プライバシーポリシー</a>-->
-    </footer>
+  </footer>
   </body>
 </html>

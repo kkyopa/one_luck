@@ -20,7 +20,7 @@
     <%= f.label :password %> <i>(変更したくない場合は空白のままにしてください)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
-      <br />
+    <br />
       <em>パスワードは<%= @minimum_password_length %>文字以上にしてください</em>
     <% end %>
   </div>
