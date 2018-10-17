@@ -23,8 +23,7 @@ class UsersController < ApplicationController
       # end
       @chart_luck =  {"現在のポイント" => @user.lucks.count}
       @chart_target =  {"目標ポイント" => @target&.point }
-       # @list_lucks = Kaminari.paginate_array(@user_lucks).page(params[:page]).per(5)
-     
+      # @list_lucks = Kaminari.paginate_array(@user_lucks).page(params[:page]).per(5)
     end
     
     def following
