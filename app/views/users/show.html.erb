@@ -14,18 +14,18 @@
   </div>
 
   <div class="follow">
-  <a href="<%= users_following_path(@user) %>">
-    <strong id="following" class="friend">
-      <%= @user.following.count %>
-    </strong>
+    <a href="<%= users_following_path(@user) %>">
+      <strong id="following" class="friend">
+        <%= @user.following.count %>
+      </strong>
     フォロー
-  </a>
-  <a href="<%= users_followers_path(@user) %>">
-    <strong id="followers" class="friend">
-      <%= @user.followers.count %>
-    </strong>
-    フォロワー
-  </a>
+    </a>
+    <a href="<%= users_followers_path(@user) %>">
+      <strong id="followers" class="friend">
+        <%= @user.followers.count %>
+      </strong>
+      フォロワー
+    </a>
   </div>
 </div>
 
@@ -62,7 +62,7 @@
 <% end %>
 
 <%if @user == current_user %>
-<% if @user.lucks.count >= @target&.point %>
+<% if point_comparison(@user,@terget)  %>
 <div class="congratulations">
   <p><span class="c">c</span><span class="o">o</span><span class="n">n</span><span class="g">g</span><span class="r">r</span><span class="a">a</span><span class="t">t</span><span class="u">u</span><span class="l">l</span><span class="a2">a</span><span class="t2">t</span><span class="i">i</span><span class="o2">o</span><span class="n2">n</span><span class="s">s</span></p>
 <p>目標ポイントを達成！！</p>

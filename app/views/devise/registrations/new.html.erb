@@ -28,7 +28,7 @@
     <%= f.file_field :avatar, id: :feed_avatar %>
   </div>
 
-  <%= fields_for(@target) do |target| %>
+  <%= fields_for(resource.targets.first) do |target| %>
     <div class="Target_content">
       <%= target.label :目標を設定してください %>
       <%= target.text_field :content %>
@@ -38,7 +38,7 @@
       <%= target.select :point, [["10", "10"], ["30", "30"],["100", "100"], ["200", "200"],  ["300", "300"], ["400", "400"],["500", "500"], ["1000", "1000"]],  :prompt => "選択してください" %>
     </div>
     <div class="target_image">
-      <%= target.label :目標イメージ画像 %>
+      <%= target.label :目標イメージ %>
       <%= target.file_field :image %><br>
     </div>
   <% end %>

@@ -6,17 +6,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @target = Target.new
     super
+    resource.targets.build
   end
 
   # POST /resource
   def create
     super
-    target = @user.targets.build(target_params)
-    target.save!
+    # target = @user.targets.build(target_params)
+    # target.save!
   end
-
   # GET /resource/edit
   # def edit
   #   super
@@ -57,7 +56,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_sign_up_path_for(resource)
   #   super(resource)
   # end
-
+   def after_sign_in_path_for(resource)
+    user_path(resource.id)
+   end
+   
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)

@@ -7,7 +7,7 @@ class RelationshipsController < ApplicationController
      current_user.follow!(@user)
      @user # @userをjs.erbに渡すための記述。
    else
-   @user
+     @user
    end
  end
 
