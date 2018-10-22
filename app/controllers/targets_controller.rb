@@ -7,6 +7,7 @@ class TargetsController < ApplicationController
     
     def index
       @target = Target.all
+     
     end
     
     def new
@@ -17,7 +18,7 @@ class TargetsController < ApplicationController
       @target = Target.new(target_params)
       @target.user_id = current_user.id
       if @target.save
-        redirect_to targets_path, notice: "投稿完了しました。"
+        redirect_to user_path(current_user), notice: "アカウント登録完了しました😆"
       else
         render 'new'
       end

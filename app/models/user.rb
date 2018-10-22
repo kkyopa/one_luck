@@ -16,9 +16,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   accepts_nested_attributes_for :targets
- 
   validates :name, presence: true
-  
+  # validates :content, presence: true
+  # validates :point, presence: true
+
   def follow!(other_user)
   active_relationships.create!(followed_id: other_user.id)
   end

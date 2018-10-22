@@ -4,4 +4,5 @@ class Luck < ApplicationRecord
     has_many :lucks
     # has_many :relationships, dependent: :destroy
     has_many :relationship_users, through: :relationship, source: :user
+    validates :content, presence: true
 end

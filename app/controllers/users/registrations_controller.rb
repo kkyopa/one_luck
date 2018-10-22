@@ -11,11 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  def create
-    super
-    # target = @user.targets.build(target_params)
-    # target.save!
-  end
+  # def create
+  #   super
+  # end
+  
   # GET /resource/edit
   # def edit
   #   super
@@ -57,7 +56,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
    def after_sign_in_path_for(resource)
-    user_path(resource.id)
+    target = @user.targets.build(target_params)
+    if target.save
+      user_path(resource.id)
+    else
+      flash[:notice] = ""
+      new_target_path
+    end
    end
    
   # The path used after sign up for inactive accounts.

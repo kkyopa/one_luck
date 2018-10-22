@@ -4,4 +4,6 @@ class Target < ApplicationRecord
   has_many :targets
   has_many :relationships, dependent: :destroy
   has_many :relationship_users, through: :relationship, source: :user
+  validates :content, presence: true
+  validates :point, presence: true
 end

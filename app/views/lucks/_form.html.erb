@@ -1,13 +1,23 @@
 <%= form_with(model: @luck, local: true ,url: choose_new_or_edit) do |form| %>
+  <% if @luck.errors.any? %>
+  <div id="error_explanation">
+     <ul>
+       <% @luck.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+     </ul>
+  </div>
+  <% end %>
   <div class="luck_content">
     <%= form.label :投稿内容 %>
     <%= form.text_field :content %>
   </div>
-  
   <div class="luck_image">
     <%= form.label :画像投稿 %>
     <%= form.file_field :image %><br>
   </div>
   <center><button type="submit" class="btn btn-info">投稿する</button></center>
 <% end %>
+
+
 

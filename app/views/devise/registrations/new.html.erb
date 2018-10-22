@@ -28,7 +28,7 @@
     <%= f.file_field :avatar, id: :feed_avatar %>
   </div>
 
-  <%= fields_for(resource.targets.first) do |target| %>
+  <%= fields_for(Target.new) do |target| %>
     <div class="Target_content">
       <%= target.label :目標を設定してください %>
       <%= target.text_field :content %>

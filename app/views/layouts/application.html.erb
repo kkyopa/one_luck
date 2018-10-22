@@ -7,7 +7,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <% if user_signed_in? %>
+  <% if current_page?(new_target_path) %>
+  <header>
+     <nav id="sampleNavbar" class="navbar navbar-default">
+  </header>
+  <% elsif user_signed_in? %>
   <header>
    <nav id="sampleNavbar" class="navbar navbar-default">
     <div class="container-fluid">

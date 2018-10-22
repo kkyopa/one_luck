@@ -52,6 +52,8 @@ class LucksController < ApplicationController
   
   def confirm
     @luck = Luck.new(luck_params)
+     @luck.user_id = current_user.id
+     render :new if @luck.invalid?
     @lucks = Luck.new(luck_params)
   end
   
