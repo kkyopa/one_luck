@@ -4,9 +4,8 @@ class LucksController < ApplicationController
   before_action :edit_destroy_postonly, only: [:edit,:destroy]
   
   def index
-    @luck = Luck.all
     @user = User.all
-    @lucks = Luck.page(params[:page]).per(10)
+    @lucks = Luck.page(params[:page]).per(10).order('created_at DESC')
   end
   
   def new

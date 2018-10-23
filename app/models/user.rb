@@ -7,8 +7,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   has_many :lucks
   has_many :targets
-  # has_many :relationship, dependent: :destroy
-  # has_many :relationship, dependent: :destroy
   has_many :relationship_lucks, through: :relationships, source: :luck
   has_many :relationship_targets, through: :relationships, source: :target
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
@@ -17,13 +15,11 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   accepts_nested_attributes_for :targets
   validates :name, presence: true
-  # validates :content, presence: true
-  # validates :point, presence: true
 
   def follow!(other_user)
   active_relationships.create!(followed_id: other_user.id)
   end
-#フォローしているかどうかを確認する
+
   def following?(other_user)
   active_relationships.find_by(followed_id: other_user.id)
   end

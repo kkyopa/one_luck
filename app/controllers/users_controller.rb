@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:following, :followers,]
 
   def index
     @user = User.all

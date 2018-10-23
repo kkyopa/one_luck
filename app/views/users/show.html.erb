@@ -38,11 +38,6 @@
   <% end %>
 </div>
 
-<!--<div>-->
-  <!--point<br><%#= current_user.lucks.count%>/<%#= @target&.point %>-->
-<!--  point<br><%#= @user.lucks.count%>/<%#= @target&.point %>-->
-<!--</div>-->
-
 <div class="mypage_chart">
   <div class="mypage_points">
     運ポイント<br><%= @user.lucks.count%>/<%= @target&.point %>
@@ -53,8 +48,6 @@
 ] %>
 </div>
 
-<!--<%#= pie_chart ({ "Football":@user.lucks.count , "Basketball": @target&.point }) %>-->
-
 <%unless @user == current_user %>
 <div class ="follow_btn">
   <%= render 'follow_form', user: @user %>
@@ -62,7 +55,6 @@
 <% end %>
 
 <%if @user == current_user %>
-<!--<%# if point_comparison(@user,@terget)  %>-->
   <% if @user.lucks.count >= @target&.point %>
   <div class="congratulations">
     <p><span class="c">c</span><span class="o">o</span><span class="n">n</span><span class="g">g</span><span class="r">r</span><span class="a">a</span><span class="t">t</span><span class="u">u</span><span class="l">l</span><span class="a2">a</span><span class="t2">t</span><span class="i">i</span><span class="o2">o</span><span class="n2">n</span><span class="s">s</span></p>
