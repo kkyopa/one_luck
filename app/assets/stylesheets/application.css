@@ -146,7 +146,6 @@ color:white;
 }
 
 /*フッター*/
-
 footer{
   width: 100%;
   background-color:#2c3e50;
@@ -216,7 +215,6 @@ label{
   border-style: solid;
   border-width: 1px;
   margin-top:10px;
-  
 }
 
 .follow_btn{
@@ -306,7 +304,7 @@ label{
 }
 
 .o2{
-   color:#00984b;
+  color:#00984b;
 }
 
 .n2{
@@ -329,5 +327,5 @@ label{
 }
 
 .follow_design{
-   font-size:30px;
+  font-size:30px;
 }

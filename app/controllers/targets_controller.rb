@@ -7,7 +7,6 @@ class TargetsController < ApplicationController
     
     def index
       @target = Target.all
-     
     end
     
     def new
@@ -27,7 +26,6 @@ class TargetsController < ApplicationController
     def show
       # @target= Target.find(params[:id])
       @target = Target.find_by(user_id: current_user.id)
-      # binding.pry
     end
     
     def edit
@@ -49,6 +47,6 @@ class TargetsController < ApplicationController
     end
     
     def target_params
-    params.require(:target).permit(:point, :content, :image, :image_cache, :user_id, :luck_id)
+      params.require(:target).permit(:point, :content, :image, :image_cache, :user_id, :luck_id)
     end
 end

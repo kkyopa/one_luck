@@ -52,8 +52,8 @@ class LucksController < ApplicationController
   
   def confirm
     @luck = Luck.new(luck_params)
-     @luck.user_id = current_user.id
-     render :new if @luck.invalid?
+    @luck.user_id = current_user.id
+    render :new if @luck.invalid?
     @lucks = Luck.new(luck_params)
   end
   
@@ -69,7 +69,7 @@ class LucksController < ApplicationController
   
   def user_blank
     if current_user.blank?
-       redirect_to new_user_registration_path
+      redirect_to new_user_registration_path
     end
   end
   
