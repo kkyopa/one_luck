@@ -3,10 +3,12 @@
   <head>
     <title>💰OneLuck</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <div class="wrap">
+  <body style= width:1440px;>
   <% if current_page?(new_target_path) %>
   <header>
      <nav id="sampleNavbar" class="navbar navbar-default">
@@ -17,8 +19,6 @@
     <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">一日一善一運</a>
-    </div>
-    <div id="gnavi" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
            <%= link_to "マイページ", user_path(current_user.id),class: 'btn btn-primary' %>
            <%= link_to "マイページ変更", edit_user_registration_path,class: 'btn btn-primary' %>
@@ -27,6 +27,8 @@
            <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: 'btn btn-primary' %>
            <%= link_to "目標一覧", top_targets_path,class: 'btn btn-success' %>
       </ul>
+    </div>
+      
     </div>
     </div>
   </header>
@@ -51,5 +53,6 @@
     <p>利用規約</p>
     <p>プライバシーポリシー</p>
   </footer>
+  </div>
   </body>
 </html>
