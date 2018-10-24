@@ -14,15 +14,14 @@ class TargetsController < ApplicationController
     end
     
     def create
-      @target = Target.new(target_params)
-      @target.user_id = current_user.id
+      @target = current_user.targets.build(target_params)
       if @target.save
         redirect_to user_path(current_user), notice: "アカウント登録完了しました😆"
       else
         render 'new'
       end
     end
-    
+     
     def show
       @target = Target.find_by(user_id: current_user.id)
     end

@@ -13,8 +13,9 @@ class LucksController < ApplicationController
   end
   
   def create
-    @luck = Luck.new(luck_params)
-    @luck.user_id = current_user.id
+    # @luck = Luck.new(luck_params)
+    # @luck.user_id = current_user.id
+    @luck = current_user.lucks.build(luck_params)
     if @luck.save
       redirect_to lucks_path, notice: "投稿完了しました。"
     else
